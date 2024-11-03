@@ -1,5 +1,23 @@
-# ViasoftExtratos
-Este projeto foi criado com o intuito de atenter o desafio técnico imposto pela Viasoft. Foi desenvolvido utilizando o Embarcadero Delphi 12.2 Community Edition.
+# Viasoft Extratos
+
+Este é um projeto desenvolvido em Delphi 12.1 Community Edition para gerar e manipular extratos bancários. 
+O objetivo deste projeto é fornecer uma interface amigável para visualização e gerenciamento de extratos. 
+
+## Requisitos: - Delphi 12.1 Community Edition - Sistema Operacional: Windows - Dependências (se houver)
+
+## Instalação: 
+1. Clone o repositório: bash git clone https://github.com/leandrolbnu/ViasoftExtratos.git 
+2. Abra o projeto no Delphi:  Inicie o Delphi 12.1 Community Edition. Vá em File > Open Project... Navegue até a pasta do projeto clonada e abra o arquivo do projeto (.dpr ou .dproj). 
+3. Compile o projeto: No menu, clique em Project > Build <NomeDoProjeto>. Verifique se não há erros de compilação. ```
+
+## Como Rodar o Projeto: 
+1. Execute o projeto: Após a compilação bem-sucedida, clique em Run > Run ou pressione F9. A aplicação será iniciada e você poderá interagir com a interface para gerar e visualizar extratos bancários.
+
+## Uso:  Este projeto é uma aplicação simples, criada como um teste técnico. Você poderá inserir dados fictícios para simular a geração de extratos e explorar as funcionalidades básicas da interface.
+
+## Licença:  Este projeto é destinado a fins acadêmicos, sem fins lucrativos ou comerciais. 
+
+
 
 Princípios SOLID utilizados:
 
@@ -19,7 +37,8 @@ Análise: A interface IViasoftController é bem definida, com métodos que são 
 
 Análise: O código utiliza a injeção de dependência ao permitir que TForm1 dependa da interface IViasoftController em vez de uma implementação concreta. Isso facilita a substituição da implementação do controlador sem alterar a View.
 
-===================================================================
+
+
 Padrão de projeto utilizado: MVC (Model-View-Controller)
 
 Análise do Padrão MVC:
@@ -42,7 +61,8 @@ Interações no MVC:
 
 - Após a manipulação dos dados, o Controller pode notificar a View para que ela atualize a interface com as informações mais recentes (como a lista de transações).
 
-==============================================
+
+
 Estruturas de dados utilizadas: TList e Record.
 
 1. Listas Genéricas (TList<TTransacao>)
