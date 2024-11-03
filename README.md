@@ -1,6 +1,8 @@
 # ViasoftExtratos
 Este projeto foi criado com o intuito de atenter o desafio técnico imposto pela Viasoft. Foi desenvolvido utilizando o Embarcadero Delphi 12.2 Community Edition.
 
+
+
 Princípios SOLID utilizados:
 
 1. Single Responsibility Principle (SRP)
@@ -19,7 +21,8 @@ Análise: A interface IViasoftController é bem definida, com métodos que são 
 
 Análise: O código utiliza a injeção de dependência ao permitir que TForm1 dependa da interface IViasoftController em vez de uma implementação concreta. Isso facilita a substituição da implementação do controlador sem alterar a View.
 
-===================================================================
+
+
 Padrão de projeto utilizado: MVC (Model-View-Controller)
 
 Análise do Padrão MVC:
@@ -42,7 +45,8 @@ Interações no MVC:
 
 - Após a manipulação dos dados, o Controller pode notificar a View para que ela atualize a interface com as informações mais recentes (como a lista de transações).
 
-==============================================
+
+
 Estruturas de dados utilizadas: TList e Record.
 
 1. Listas Genéricas (TList<TTransacao>)
