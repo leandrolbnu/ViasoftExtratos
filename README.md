@@ -1,5 +1,5 @@
 # ViasoftExtratos
-Este projeto foi criado com o intuito de atenter o desafio técnico imposto pela Viasoft. 
+Este projeto foi criado com o intuito de atenter o desafio técnico imposto pela Viasoft. Foi desenvolvido utilizando o Embarcadero Delphi 12.2 Community Edition.
 
 Princípios SOLID utilizados:
 
