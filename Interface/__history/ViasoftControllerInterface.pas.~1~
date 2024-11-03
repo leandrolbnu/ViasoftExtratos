@@ -1,0 +1,20 @@
+unit ViasoftControllerInterface;
+
+interface
+
+uses
+  System.Generics.Collections,
+  Transacao;
+
+type
+  IViasoftController = interface
+    ['{A1234567-B89C-40D1-A123-456789ABCDEF}'] // GUID para a interface
+    procedure AdicionarTransacao(ATransacao: TTransacao; var ATransacoes: TList<TTransacao>);
+    procedure EditarTransacao(Index: Integer; ATransacao: TTransacao; var ATransacoes: TList<TTransacao>);
+    procedure RemoverTransacao(Index: Integer; var ATransacoes: TList<TTransacao>);
+  end;
+
+implementation
+
+end.
+

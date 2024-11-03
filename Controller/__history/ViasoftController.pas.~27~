@@ -1,0 +1,67 @@
+unit ViasoftController;
+
+interface
+
+uses
+  System.SysUtils,
+  System.Generics.Collections,
+  Math,
+  ViasoftModel,
+  Transacao;
+
+type
+  TViasoftController = class
+  private
+    FModel: TViasoftModel;
+    function ValidarIndice(Index: Integer; ATransacoes: TList<TTransacao>): Boolean;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure AdicionarTransacao(ATransacao: TTransacao; ATransacoes: TList<TTransacao>);
+    procedure EditarTransacao(Index: Integer; ATransacao: TTransacao; ATransacoes: TList<TTransacao>);
+    procedure RemoverTransacao(Index: Integer; ATransacoes: TList<TTransacao>);
+  end;
+
+
+implementation
+
+constructor TViasoftController.Create;
+begin
+  FModel := TViasoftModel.Create;
+end;
+
+destructor TViasoftController.Destroy;
+begin
+  FModel.Free;
+  inherited;
+end;
+
+procedure TViasoftController.AdicionarTransacao(ATransacao: TTransacao; ATransacoes: TList<TTransacao>);
+begin
+  FModel.AdicionarTransacao(ATransacao, ATransacoes);
+end;
+
+procedure TViasoftController.EditarTransacao(Index: Integer; ATransacao: TTransacao; ATransacoes: TList<TTransacao>);
+begin
+  if not ValidarIndice(Index, ATransacoes) then
+    raise Exception.Create('Índice inválido.');
+
+  FModel.EditarTransacao(Index, ATransacao, ATransacoes);
+end;
+
+procedure TViasoftController.RemoverTransacao(Index: Integer; ATransacoes: TList<TTransacao>);
+begin
+  if not ValidarIndice(Index, ATransacoes) then
+    raise Exception.Create('Índice inválido.');
+
+  FModel.RemoverTransacao(Index, ATransacoes);
+end;
+
+function TViasoftController.ValidarIndice(Index: Integer; ATransacoes: TList<TTransacao>): Boolean;
+begin
+  Result := (Index >= ZeroValue) and (Index < ATransacoes.Count);
+end;
+
+end.
+

@@ -1,0 +1,67 @@
+unit ViasoftController;
+
+interface
+
+uses
+  System.SysUtils,
+  System.Generics.Collections,
+  Math,
+  ViasoftModel,
+  Transacao;
+
+type
+  TViasoftController = class
+  private
+    FModel: TViasoftModel;
+    function ValidarIndice(Index: Integer; ATransacoes: TList<TTransacao>): Boolean;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure AdicionarTransacao(ATransacao: TTransacao; ATransacoes: TList<TTransacao>);
+    procedure EditarTransacao(Index: Integer; ATransacao: TTransacao; ATransacoes: TList<TTransacao>);
+    procedure RemoverTransacao(Index: Integer; ATransacoes: TList<TTransacao>);
+  end;
+
+
+implementation
+
+constructor TViasoftController.Create;
+begin
+  FModel := TViasoftModel.Create;
+end;
+
+destructor TViasoftController.Destroy;
+begin
+  FModel.Free;
+  inherited;
+end;
+
+procedure TViasoftController.AdicionarTransacao(ATransacao: TTransacao; ATransacoes: TList<TTransacao>);
+begin
+  FModel.AdicionarTransacao(ATransacao, ATransacoes);
+end;
+
+procedure TViasoftController.EditarTransacao(Index: Integer; ATransacao: TTransacao; ATransacoes: TList<TTransacao>);
+begin
+  if Index >= ZeroValue then
+    FModel.EditarTransacao(Index, ATransacao, ATransacoes)
+  else
+    MessageDlg('Nenhum registro selecionado. Selecione um registro', TMsgDlgType.mtInformation, [mbOk], ZeroValue);
+end;
+
+procedure TViasoftController.RemoverTransacao(Index: Integer; ATransacoes: TList<TTransacao>);
+begin
+  if Index >= ZeroValue then
+    FModel.RemoverTransacao(Index, ATransacoes)
+  else
+    MessageDlg('Nenhum registro selecionado. Selecione um registro', TMsgDlgType.mtInformation, [mbOk], ZeroValue);
+end;
+
+function TViasoftController.ValidarIndice(Index: Integer; ATransacoes: TList<TTransacao>): Boolean;
+begin
+  Result := (Index >= ZeroValue) and (Index < ATransacoes.Count);
+end;
+
+end.
+

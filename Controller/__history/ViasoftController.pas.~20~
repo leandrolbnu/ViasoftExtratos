@@ -1,0 +1,64 @@
+unit ViasoftController;
+
+interface
+
+uses
+  System.Generics.Collections,
+  Vcl.Dialogs,
+  Math,
+  ViasoftModel,
+  Transacao;
+
+type
+  TViasoftController = class
+  private
+    FModel: TViasoftModel;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure AdicionarTransacao(ATransacao: TTransacao; var ATransacoes: TList<TTransacao>);
+    procedure EditarTransacao(Index: Integer; ATransacao: TTransacao; var ATransacoes: TList<TTransacao>);
+    procedure RemoverTransacao(Index: Integer; var ATransacoes: TList<TTransacao>);
+  end;
+
+implementation
+
+constructor TViasoftController.Create;
+begin
+  FModel := TViasoftModel.Create;
+end;
+
+destructor TViasoftController.Destroy;
+begin
+  FModel.Free;
+  inherited;
+end;
+
+//=====//====//=====//====//=====//====//=====//====//=====//====//=====//====//=====//====//=====//====//=====//====
+
+procedure TViasoftController.AdicionarTransacao(ATransacao: TTransacao; var ATransacoes: TList<TTransacao>);
+begin
+  FModel.AdicionarTransacao(ATransacao, ATransacoes);
+end;
+
+procedure TViasoftController.EditarTransacao(Index: Integer; ATransacao: TTransacao; var ATransacoes: TList<TTransacao>);
+begin
+  if Index >= ZeroValue then
+    FModel.EditarTransacao(Index, ATransacao, ATransacoes)
+  else
+    MessageDlg('Nenhum registro selecionado. Selecione um registro', TMsgDlgType.mtInformation, [mbOk], 0);
+end;
+
+procedure TViasoftController.RemoverTransacao(Index: Integer; var ATransacoes: TList<TTransacao>);
+begin
+  if Index >= ZeroValue then
+    FModel.RemoverTransacao(Index, ATransacoes)
+  else
+    MessageDlg('Nenhum registro selecionado. Selecione um registro', TMsgDlgType.mtInformation, [mbOk], 0);
+end;
+
+//=====//====//=====//====//=====//====//=====//====//=====//====//=====//====//=====//====//=====//====//=====//====
+
+end.
+
