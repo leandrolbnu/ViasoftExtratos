@@ -3,12 +3,14 @@
 Este é um projeto desenvolvido em Delphi 12.1 Community Edition para gerar e manipular extratos bancários. 
 O objetivo deste projeto é fornecer uma interface amigável para visualização e gerenciamento de extratos. 
 
-## Requisitos: - Delphi 12.1 Community Edition - Sistema Operacional: Windows - Dependências (se houver)
+## Requisitos: - Delphi 12.1 Community Edition - Sistema Operacional: Windows
 
 ## Instalação: 
 1. Clone o repositório: bash git clone https://github.com/leandrolbnu/ViasoftExtratos.git 
-2. Abra o projeto no Delphi:  Inicie o Delphi 12.1 Community Edition. Vá em File > Open Project... Navegue até a pasta do projeto clonada e abra o arquivo do projeto (.dpr ou .dproj). 
-3. Compile o projeto: No menu, clique em Project > Build <NomeDoProjeto>. Verifique se não há erros de compilação. ```
+2. Abra o projeto no Delphi:  Inicie o Delphi 12.1 Community Edition. Vá em File > Open Project... Navegue até a pasta do projeto clonada e abra o arquivo do projeto (Viasoft.dpr ou Viasoft.dproj). 
+3. Compile o projeto: No menu, clique em Project > Build <ViasoftExtratos>.
+
+Caso não tenha o Delphi e não queira visualizar/manipular o código-fonte do projeto, basta executar o arquivo Viasoft.exe.
 
 ## Como Rodar o Projeto: 
 1. Execute o projeto: Após a compilação bem-sucedida, clique em Run > Run ou pressione F9. A aplicação será iniciada e você poderá interagir com a interface para gerar e visualizar extratos bancários.
