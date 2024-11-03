@@ -140,12 +140,12 @@ end;
 
 function TForm1.NumeroValido(Input: string): Boolean;
 var
-  Value: Integer;
+  Value: Currency;
 begin
-  Result := TryStrToInt(Input, Value);
+  Result := TryStrToCurr(Input, Value);
 
   if Result then
-    Result := Value > ZeroValue;  
+    Result := Value > ZeroValue;
 end;
 
 function TForm1.ValidaIndice(Index: Integer): Boolean;
